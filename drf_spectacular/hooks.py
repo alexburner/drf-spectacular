@@ -134,7 +134,10 @@ def postprocess_schema_enums(result, generator, **kwargs):
                 if '' in prop_enum_original_list:
                     components.append(create_enum_component('BlankEnum', schema={'enum': ['']}))
                 if None in prop_enum_original_list:
-                    components.append(create_enum_component('NullEnum', schema={'enum': [None]}))
+                    if spectacular_settings.OAS_VERSION.startswith('3.1'):
+                        components.append(create_enum_component('NullEnum', schema={'type': 'null'}))
+                    else:
+                        components.append(create_enum_component('NullEnum', schema={'enum': [None]}))
 
             if len(components) == 1:
                 prop_schema.update(components[0].ref)

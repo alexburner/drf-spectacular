@@ -44,6 +44,9 @@ SPECTACULAR_DEFAULTS: Dict[str, Any] = {
     # accurately modeled when request and response components are separated.
     'ENFORCE_NON_BLANK_FIELDS': False,
 
+    #
+    'OAS_VERSION': '3.0.3',
+
     # Configuration for serving a schema subset with SpectacularAPIView
     'SERVE_URLCONF': None,
     # complete public schema or a subset based on the requesting user
