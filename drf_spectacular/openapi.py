@@ -1,3 +1,4 @@
+import json
 import copy
 import functools
 import re
@@ -348,6 +349,10 @@ class AutoSchema(ViewInspector):
             auths.append({})
         elif permissions.IsAuthenticatedOrReadOnly in perms and self.method in permissions.SAFE_METHODS:
             auths.append({})
+
+        print("get_auth")
+        print(json.dumps(auths, indent=2, default=str))
+
         return auths
 
     def get_request_serializer(self) -> typing.Any:

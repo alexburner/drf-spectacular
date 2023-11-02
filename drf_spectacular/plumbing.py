@@ -1296,6 +1296,10 @@ def resolve_type_hint(hint):
 
 
 def whitelisted(obj: object, classes: Optional[List[Type[object]]], exact=False):
+    print("whitelisted")
+    print(json.dumps(obj, indent=2, default=str))
+    print(json.dumps(classes, indent=2, default=str))
+    print(exact)
     if classes is None:
         return True
     if exact:
